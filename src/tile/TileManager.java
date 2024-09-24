@@ -48,13 +48,13 @@ public class TileManager {
         int row = 0;
         while (col <gp.maxWorldCol && row < gp.maxWorldRow){
             String line = br.readLine();
-            while (col < gp.maxScreenCol){
+            while (col < gp.maxWorldCol){
                 String[] numbers = line.split(" ");
                 int num = Integer.parseInt(numbers[col]);
                 mapTileNum[col][row] = num;
                 col++;
             }
-            if (col == gp.maxScreenCol){
+            if (col == gp.maxWorldCol){
                 col = 0;
                 row++;
             }
@@ -72,8 +72,8 @@ public class TileManager {
             int tileNum = mapTileNum[worldCol][worldRow];
             int worldX = worldCol* gp.tileSize;
             int worldY = worldRow*gp.tileSize;
-            int screenX = worldX -gp.player.screenX +gp.player.screenX ;
-            int screenY = worldY -gp.player.screenY +gp.player.screenY ;
+            int screenX = worldX -gp.player.worldX +gp.player.screenX ;
+            int screenY = worldY -gp.player.worldY  +gp.player.screenY ;
             g2.drawImage( tile[tileNum].image,screenX,screenY,gp.tileSize, gp.tileSize, null);
             worldCol++;
 
