@@ -13,6 +13,7 @@ public class Main {
         window.pack();  // adjust window size to fit components
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+        gamePanel.setUpGame();
         gamePanel.startGame();
     }
 
